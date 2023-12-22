@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 禁止使用手機瀏覽器的電話號碼檢測 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>CFSKen Home Page</title>
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="Access/Favicon/favicon.ico" />
+    <meta name="keywords" content="Kenzo" />
+    <meta name="description"
+        content="你好，我是Kenzo，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。" />
+    <meta name="auther" content="Kenzo" />
+    <script src="https://kit.fontawesome.com/e4807cf622.js" crossorigin="anonymous"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">   -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header .jumbotron img {
+            width: 100%;
+            height: 20vh;
+            object-fit: cover;
+            display: block;
+        }
+
+        nav {
+            position:sticky;
+            top:0;
+            background: #000;
+            color: white;
+            justify-content: space-around;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav li {
+            width: 100%;
+            text-align: center;
+        }
+
+        nav ul li a {
+            padding: 10px;
+            display: block;
+            height: 100%;
+            width: 100%;
+            color: white;
+            text-decoration: none;
+            transition: 1s;
+        }
+
+        nav ul li:hover>a {
+            background-color: white;
+            color: black;
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: linear-gradient(30deg, lightblue 0%, white 100%);
+        }
+
+        main section {
+            padding: 10px 0px;
+
+            width: 80%;
+        }
+
+        main section h1 {
+            text-align: center;
+            padding: 10px 0px;
+        }
+
+        main section p {
+            text-indent: 4ex;
+        }
+        article {
+            margin: 20px 0px;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--jumbotron-->
+    <header>
+        <div class="jumbotron">
+            <img class="w-100" src="Access/jumbotron.jpeg" alt="lead image" />
+        </div>
+    </header>
+    <nav>
+        <div class="navbar">
+            <ul>
+                <li>
+                    <a href="index.html"><i class="fa-solid fa-house"></i>首頁</a>
+                </li>
+                <li>
+                    <a href="MyResume.html"><i class="fa-solid fa-user"></i>履歷</a>
+                </li>
+                <li>
+                    <a href="MyWorks.html"><i class="fa-solid fa-star"></i>作品</a>
+                </li>
+                <li>
+                    <a href="MyTravels.html"><i class="fa-solid fa-plane"></i>旅遊</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- 介紹 -->
+    <main>
+        <section class="MyInfo">
+            <h1>基本資料</h1>
+            <img style="float:right; width:100px; height: 100px;" src="Access/MyPhoto.jpg" alt="My Photo" height="300">
+            <p> 姓名:Kenzo Chang </p>
+            <p> 生日:3月9日 </p>
+            <p> 戶籍:Taiwan </p>
+            <p> 學歷:高雄應用科技大學 電子工程學習 碩士 </p>
+            <p> 專業能力: 影像處理, C#, HTML, JavaScript, CSS</p>
+        </section>
+        <section class="Career">
+            <h1>工作經驗</h1>
+            
+            <article class="CareerItem">
+                <p>年資: 2018/09~</p>
+                <p>公司名稱: 純軟體公司</p>
+                <p>職務: 軟體工程師</p>
+                <p>工作內容: Custometic detect machine </p>
+            </article>
+            <article class="CareerItem">
+                <p>年資: 2017/09~2018/06</p>
+                <p>公司名稱: 半導體公司</p>
+                <p>職務: 影像處理工程師</p>
+                <p>工作內容: 晶圓級檢測算法與系統</p>
+            </article>
+            <article class="CareerItem">
+                <p>年資: 2015/09~2017/09</p>
+                <p>公司名稱: 自動化公司</p>
+                <p>職務: AOI軟體工程師</p>
+                <p>工作內容: SMT/PCB 光學檢查機機台 </p>
+            </article>
+        </section>
+        <section class="Education">
+            <h1>學歷</h1>
+            <article>
+                <p>國立高雄應用科技大學</p>
+                <p>碩士班</p>
+                <p>電子工程學系</p>
+                <p>碩士論文: </p>
+                <p>研討會論文: </p>
+            </article>
+            <article>
+                <p>國立高雄應用科技大學</p>
+                <p>學士班</p>
+                <p>電子工程學系</p>
+            </article>
+            <article>
+                <p>國立桃園農業工業職業學校</p>
+                <p>高職</p>
+                <p>電子系</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>感謝您來訪，希望您在這裡找到您想要的資訊。如果有任何問題或想要交流，請隨時與我聯繫</a>。</p>
+        <p><em>Kenzo Chang -- CFSKen19910309@gmail.com</em></p>
+    </footer>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+</body>
+
+</html>
