@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影像上傳</title>
+    <style>
+        #UploadArea {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            width:30%;
+            text-align: center;
+            cursor: pointer;
+            margin: auto;
+            position: relative;
+        }
+
+        #fileInput {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>影像上傳</h2>
+    <div id="UploadArea" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" onchange="openFileInput()">
+        <p>請拖曳檔案或點選此以選擇檔案</p>
+        <input type="file" name="files" id="fileInput" multiple>
+    </div>
+    <button type="button" onclick="uploadFiles()">上傳檔案</button>
+    <div id="fileList">
+        <!-- 顯示上傳檔案的名稱， -->
+    </div>
+
+    <script type="text/javascript">
+        function handleDrop(event) {
+            event.preventDefault();
+            var files = event.dataTransfer.files;
+            document.getElementById('fileInput').files = files;
+            updateFileList();
+        }
+        function openFileInput() {
+            updateFileList();
+        }
+
+        function handleDragOver(event) {
+            event.preventDefault();
+        }
+        function updateFileList() {
+            var formData = new FormData(document.getElementById('uploadForm'));
+            // 使用 AJAX 或其他方式將 formData 發送到後端進行處理
+            // 這裡僅是一個範例，實際上傳檔案可能需要使用 XMLHttpRequest 或 Fetch API
+            // 以及後端的處理邏輯，這裡沒有包含實際的上傳處理代碼
+
+            // 以下是一個範例，可以使用 Fetch API 發送 FormData 到後端
+            // fetch('/upload', {
+            //     method: 'POST',
+            //     body: formData
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     // 處理後端回應
+            //     console.log(data);
+            // });
+
+            // 簡單地顯示已選擇的檔案名稱
+
+            updateFileList();
+        }
+        function updateFileList() {
+            var fileList = document.getElementById('fileList');
+            fileList.innerHTML = ''; //之前的內容
+            for (var i = 0; i < document.getElementById('fileInput').files.length; i++) {
+                fileName = document.getElementById('fileInput').files[i].name;
+                var listItem = document.createElement('div');
+                listItem.textContent=fileName;
+                fileList.appendChild(listItem);
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
