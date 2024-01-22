@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginPage</title>
+    <style>
+        :root {
+            --primary-color: #3498da;
+            --hover-color: #349fff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            border: 5px solid var(--primary-color);
+            border-radius: 8px;
+            width: 60%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .submit-button,
+        .reset-button {
+            width: 100%;
+            padding: 12px;
+            display: block;
+            border-radius: 4px;
+            background-color: var(--primary-color);
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .reset-button {
+            background-color: #ccc;
+            margin-top: 16px;
+        }
+
+        .submit-button:hover,
+        .reset-button:hover {
+            background-color: var(--hover-color);
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label for="Account">Account</label>
+        <input type="text" name="Account" id="AccountID" required />
+        <label for="Password">Password</label>
+        <input type="password" name="Password" id="PasswordID" required>
+        <button class="submit-button" type="submit">Submit</button>
+        <button class="reset-button" type="reset">Reset</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.querySelector('form'); 
+            var accountInput = document.getElementById('AccountID');
+            var passwordInput = document.getElementById('PasswordID');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // 表單驗證邏輯
+                var isValid = validateForm();
+                if (isValid) {
+                    // 這裡可以添加與後端交互的代碼
+                    alert('表單驗證通過，可以提交！');
+                }
+            });
+
+            function validateForm() {
+                var accountValue = accountInput.value.trim();
+                var passwordValue = passwordInput.value.trim();
+
+                // 簡單的驗證邏輯，用戶名和密碼不能為空
+                if (accountValue === '' || passwordValue === '') {
+                    alert('請輸入帳號和密碼');
+                    return false;
+                }
+
+                return true;
+            }
+
+            // 添加動態效果
+            accountInput.addEventListener('input', function () {
+                // 改變用戶名input邊框顏色
+
+                if (accountInput.value.trim() !== '') {
+
+                    accountInput.style.borderColor = 'green';
+                } else {
+                    accountInput.style.borderColor = 'initial';
+                }
+            });
+
+            passwordInput.addEventListener('input', function () {
+                // 改變密碼input邊框顏色
+                if (passwordInput.value.trim() !== '') {
+                    passwordInput.style.borderColor = 'green';
+                } else {
+                    passwordInput.style.borderColor = 'initial';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

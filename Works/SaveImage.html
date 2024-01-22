@@ -9,7 +9,7 @@
         #UploadArea {
             border: 2px dashed #ccc;
             padding: 20px;
-            width:30%;
+            width: 30%;
             text-align: center;
             cursor: pointer;
             margin: auto;
@@ -39,8 +39,12 @@
         <!-- 顯示上傳檔案的名稱， -->
     </div>
 
+
+
     <script type="text/javascript">
+        
         function handleDrop(event) {
+
             event.preventDefault();
             var files = event.dataTransfer.files;
             document.getElementById('fileInput').files = files;
@@ -53,7 +57,7 @@
         function handleDragOver(event) {
             event.preventDefault();
         }
-        function updateFileList() {
+        function uploadFiles() {
             var formData = new FormData(document.getElementById('uploadForm'));
             // 使用 AJAX 或其他方式將 formData 發送到後端進行處理
             // 這裡僅是一個範例，實際上傳檔案可能需要使用 XMLHttpRequest 或 Fetch API
@@ -80,7 +84,7 @@
             for (var i = 0; i < document.getElementById('fileInput').files.length; i++) {
                 fileName = document.getElementById('fileInput').files[i].name;
                 var listItem = document.createElement('div');
-                listItem.textContent=fileName;
+                listItem.textContent = fileName;
                 fileList.appendChild(listItem);
             }
 
