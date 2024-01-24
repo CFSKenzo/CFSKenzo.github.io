@@ -3,180 +3,144 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 禁止使用手機瀏覽器的電話號碼檢測 -->
-    <meta name="format-detection" content="telephone=no">
-    <title>CFSKen Home Page</title>
-    <link rel="icon" type="image/x-icon" sizes="16x16" href="Access/Favicon/favicon.ico" />
-    <meta name="keywords" content="Kenzo" />
-    <meta name="description"
-        content="你好，我是Kenzo，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。" />
-    <meta name="auther" content="Kenzo" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">   -->
+    <title>LoginPage</title>
     <style>
+        :root {
+            --primary-color: #3498da;
+            --hover-color: #349fff;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            list-style-type: none;
+            font-size: 18px;
         }
 
-        html,
         body {
-            height: 100%;
-            width: 100%;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
-        }
-
-        header .jumbotron img {
-            width: 100%;
-            height: 20vh;
-            object-fit: cover;
-            display: block;
-        }
-
-        nav {
-            background: #000;
-            color: white;
-            justify-content: space-around;
-        }
-
-        nav ul {
-            display: flex;
-        }
-
-        nav li {
-            width: 100%;
-            text-align: center;
-        }
-
-        nav ul li a {
-            padding: 10px;
-            display: block;
-            height: 100%;
-            width: 100%;
-            color: white;
-            text-decoration: none;
-            transition: 1s;
-        }
-
-        nav ul li:hover>a {
-            background-color: white;
-            color: black;
-        }
-
-        main {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            background-image: linear-gradient(30deg, lightblue 0%, white 100%);
+            background-color: #f4f4f4;
         }
 
-        main section {
-            padding: 10px 0px;
-
-            width: 80%;
+        form {
+            border: 5px solid var(--primary-color);
+            border-radius: 8px;
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        main section h1 {
-            text-align: center;
-            padding: 10px 0px;
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
         }
 
-        main section p {
-            text-indent: 4ex;
-        }
-
-        .Articales {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .Articales article {
-            width: 45%;
-            padding: 20px 0px;
-        }
-
-        .Articales article h2 {
-            padding: 10px 0px;
-        }
-
-        footer {
-            background: black;
-            color: white;
-            text-align: center;
+        input {
+            width: 100%;
             padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .submit-button,
+        .reset-button {
+            width: 100%;
+            padding: 12px;
+            display: block;
+            border-radius: 4px;
+            background-color: var(--primary-color);
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .reset-button {
+            background-color: #ccc;
+            margin-top: 16px;
+        }
+
+        .submit-button:hover,
+        .reset-button:hover {
+            background-color: var(--hover-color);
         }
     </style>
 </head>
 
 <body>
-    <!--jumbotron-->
-    <header>
-        <div class="jumbotron">
-            <img class="w-100" src="Access/jumbotron.jpeg" alt="lead image" />
-        </div>
-    </header>
-    <nav>
-        <div class="navbar">
-            <ul>
-                <li>
-                    <a href="Index.html">首頁</a>
-                </li>
-                <li>
-                    <a href="Resume.html">履歷</a>
-                </li>
-                <li>
-                    <a href="Article.html">作品</a>
-                </li>
-                <li>
-                    <a href="Travel.html">旅遊</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!-- 介紹 -->
-    <main>
-        <section class="AboutMe">
-            <h1>關於我</h1>
-            <p>
-                你好，我是Kenzo，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。
-            </p>
-        </section>
-        <section class="AboutWebSite">
-            <h1>關於網站</h1>
-            <p>
-                這個網站的存在源於對生命的熱愛與探索的渴望。開始經營的初衷，是為了紀錄個人的成長歷程以及豐富的旅遊體驗。透過這個平台，我能夠分享生活中的點滴，記錄自己的成長歷程，並留下每次旅行的珍貴回憶。
-            </p>
-        </section>
-        <section class="Articales">
-            <article>
-                <h2>首頁</h2>
-                <p>這裡是網站的首頁，是我與您分享最新動態、想法和專案的地方。歡迎您探索我的世界！</p>
-            </article>
-            <article>
-                <h2>履歷</h2>
-                <p>在這裡，您可以查看我的履歷，瞭解我的學經歷、專業技能和職業發展。讓我們一同回顧過去，了解我在軟體工程和影像處理領域的成就。</p>
-            </article>
-            <article>
-                <h2>作品</h2>
-                <p>這裡展示了我參與的一些專案和作品。從影像處理演算法到軟體開發，您可以深入了解我的技術實力和創作風格。</p>
-            </article>
-            <article>
-                <h2>旅遊</h2>
-                <p>追求知識不僅在技術領域，還在於探索世界。在這個板塊，我分享了我的旅遊經歷和所見所聞。一同感受文化的多樣性，品味旅行帶來的豐富體驗。</p>
-            </article>
-        </section>
-    </main>
+    <form action="">
+        <label for="Account">Account</label>
+        <input type="text" name="Account" id="AccountID" required />
+        <label for="Password">Password</label>
+        <input type="password" name="Password" id="PasswordID" required>
+        <button class="submit-button" type="submit">Submit</button>
+        <button class="reset-button" type="reset">Reset</button>
+    </form>
 
-    <footer>
-        <p>感謝您來訪，希望您在這裡找到您想要的資訊。如果有任何問題或想要交流，請隨時與我聯繫</a>。</p>
-        <p><em>Kenzo Chang -- CFSKen19910309@gmail.com</em></p>
-    </footer>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.querySelector('form'); 
+            var accountInput = document.getElementById('AccountID');
+            var passwordInput = document.getElementById('PasswordID');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // 表單驗證邏輯
+                var isValid = validateForm();
+                if (isValid) {
+                    // 這裡可以添加與後端交互的代碼
+                    alert('表單驗證通過，可以提交！');
+                }
+            });
+
+            function validateForm() {
+                var accountValue = accountInput.value.trim();
+                var passwordValue = passwordInput.value.trim();
+
+                // 簡單的驗證邏輯，用戶名和密碼不能為空
+                if (accountValue === '' || passwordValue === '') {
+                    alert('請輸入帳號和密碼');
+                    return false;
+                }
+
+                return true;
+            }
+
+            // 添加動態效果
+            accountInput.addEventListener('input', function () {
+                // 改變用戶名input邊框顏色
+
+                if (accountInput.value.trim() !== '') {
+
+                    accountInput.style.borderColor = 'green';
+                } else {
+                    accountInput.style.borderColor = 'initial';
+                }
+            });
+
+            passwordInput.addEventListener('input', function () {
+                // 改變密碼input邊框顏色
+                if (passwordInput.value.trim() !== '') {
+                    passwordInput.style.borderColor = 'green';
+                } else {
+                    passwordInput.style.borderColor = 'initial';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
