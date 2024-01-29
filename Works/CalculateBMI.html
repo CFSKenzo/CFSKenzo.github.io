@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        * {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            align-self: center;
+        }
+
+        #PersonalInfomationForm {
+            display: block;
+            width: 50%;
+            margin: auto;
+        }
+
+        fieldset {
+            padding: 20px;
+        }
+
+        fieldset *:not(legend) {
+
+            display: block;
+            width: calc(100% - 20px);
+            margin: 10px auto;
+        }
+
+        .button-container {
+            display: flex;
+            height: 60px;
+            justify-content: space-between;
+        }
+
+        .button-container button {
+            margin: 5px;
+            border-radius: 4px;
+        }
+
+
+        #ResultSection {
+            visibility: hidden;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 40px;
+            background-color: #ccc;
+        }
+
+        input[type="radio"] {
+            appearance: none;
+            outline: none;
+            border: none;
+            background-color: transparent;
+            /* 将背景色设为透明 */
+        }
+
+
+        /* 当单选按钮被选中时，将伪元素样式的背景色更改为指定颜色 */
+        input[type="radio"]:checked{
+            background-color: #ddd;
+            /* 设置选中时的背景色 */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>BMI Calculator</h1>
+    </header>
+
+    <main>
+        <form id="PersonalInfomationForm" onsubmit="event.preventDefault(); CalculateAll();">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="AgeInput">Age</label>
+                <input type="number" id="AgeInput" name="Age" max="100" min="1" placeholder="Enter age">
+                <label for="GenderSelect">Gender</label>
+                <select name="Gender" id="GenderSelect">
+                    <option value="1">男</option>
+                    <option value="0">女</option>
+                </select>
+                <label for="HeightInput">Height(cm)</label>
+                <input type="number" id="HeightInput" name="Height" placeholder="Enter height">
+                <label for="WeightInput">Weight(kg)</label>
+                <input type="number" name="Weight" id="WeightInput" placeholder="Enter weight">
+
+                <div class="button-container">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </fieldset>
+        </form>
+        <section id="ResultSection">
+            <h2>Result</h2>
+            <div id="Result"></div>
+        </section>
+    </main>
+    <nav>
+        <ul>
+            <li><input type="radio" name="" id="" href="#BMICalculation">BIM Calculation</a></li>
+            <li><input type="radio" name="" id="" href="#IdealWeight">Ideal Weight</a></li>
+            <li><input type="radio" name="" id="" href="#BMR">Basal Metabolic Rate</a></li>
+            <li><input type="radio" name="" id="" href="#BodyFatPercentage">Body Fat Percentage</a></li>
+        </ul>
+    </nav>
+
+    <article id="BMICalculation">
+        <h2>BMI計算</h2>
+        <p>BMI（Body Mass Index）中文為「身體質量指數」，其計算公式如下</p>
+        <p><em>BMI = 體重（公斤）/ 身高平方（公尺平方）</em></p>
+        <p>依據BMI的數值，可以得知身體狀態</p>
+        <dl>
+            <dt>體重過輕</dt>
+            <dd>BMI &lt; 18.5</dd>
+            <dt>體重正常</dt>
+            <dd>18.5 &le; BMI &lt; 24</dd>
+            <dt>體重過重</dt>
+            <dd>24 &le; BMI &lt; 27</dd>
+            <dt>輕度肥胖</dt>
+            <dd>27 &le; BMI &lt; 30</dd>
+            <dt>中度肥胖</dt>
+            <dd>30 &le; BMI &lt; 35</dd>
+            <dt>重度肥胖</dt>
+            <dd>BMI &ge; 35</dd>
+        </dl>
+    </article>
+    <article id="IdealWeight">
+        <h2>BMI理想體重</h2>
+        <p>男性:<em>(身高cm - 80) x 70% = 標準體重</em></p>
+        <p>女性:<em>(身高cm - 70) x 60% = 標準體重</em></p>
+        <dl>
+            <dt>正常體重</dt>
+            <dd>標準體重±10% </dd>
+            <dt>過重或過輕</dt>
+            <dd>標準體重±10%至20%</dd>
+            <dt>肥胖或體重不足</dt>
+            <dd>標準體重超過±20%</dd>
+        </dl>
+    </article>
+    <article id="BMR">
+        <h2>基礎代謝率</h2>
+        <p>BMR (Basal Metabolic Rate)中文又稱「基礎代謝率」，簡單來說即是人體為了維持生命及生理機能所需的最低能量。</p>
+        <dl>
+            <dt>男性BMR</dt>
+            <dd><em>(10 X 公斤體重)+ (6.25 X 公分身高) - (5 X 年齡歲數）+ 5</em></dd>
+            <dt>女性BMR</dt>
+            <dd><em>(10 X 公斤體重)+ (6.25 X 公分身高) - (5 X 年齡歲數）- 161</em></dd>
+        </dl>
+    </article>
+    <article id="BodyFatPercentage">
+        <h2>體脂率</h2>
+        <p>體脂肪率如果超標,就算BMI落在正常值,其實還是屬於肥胖男性與女性的體脂肪率分別為：</p>
+        <p><em>體脂率＝1.2 X BMI + 0.23 X 年齡 – 5.4 - 10.8 X (男性:1,女性:0)</em></p>
+        <dl>
+            <dt>男性</dt>
+            <dd>正常值:15 - 25%</dd>
+            <dt>女性</dt>
+            <dd>正常值:20 - 30%</dd>
+        </dl>
+    </article>
+
+    <script>
+        function CalculateAll() {
+            var height = parseFloat(document.getElementById("HeightInput").value);
+            var weight = parseFloat(document.getElementById("WeightInput").value);
+            var age = parseInt(document.getElementById("AgeInput").value);
+            var gender = parseInt(document.getElementById("GenderSelect").value);
+            if (isNaN(height) || isNaN(weight) || height == 0 || weight == 0) {
+                alert("Please enter valid weight or height");
+                return;
+            }
+            var bmi = CalculateBMI(height, weight);
+            var idealWeight = CalculateIdealWeight(gender, height)
+            var bmr = CalculateBMR(gender, age, height, weight);
+            var bodyFatPercentage = CalculateBodyFatPercentage(gender, age, bmi)
+            document.getElementById("Result").innerHTML = "Your BMI is: " + bmi + " kg/m²" + "<br>" +
+                "BMI理想體重為: " + idealWeight + "<br>" +
+                "基礎代謝率(BMR)為: " + bmr + "<br>" +
+                "體脂率為: " + bodyFatPercentage;
+        }
+        function CalculateBMI(height, weight) {
+            return weight / ((height / 100) * (height / 100));
+        }
+        function CalculateBMR(gender, age, height, weight) {
+            switch (gender) {
+                case 1: {
+                    return (10 * weight) + (6.25 * height) - (5 * age) + 5;
+                }
+                case 0: {
+                    return (10 * weight) + (6.25 * height) - (5 * age) - 161;
+                }
+            }
+        }
+        function CalculateIdealWeight(gender, height) {
+            switch (gender) {
+                case 1: {
+                    return (height - 80) * 70 / 100;
+                }
+                case 0: {
+                    return (height - 70) * 60 / 100;
+                }
+            }
+        }
+        function CalculateBodyFatPercentage(gender, age, bmi) {
+            switch (gender) {
+                case 1: {
+                    return 1.2 * bmi + 0.23 * age - 5.4 - 10.8;
+                }
+                case 0: {
+                    return 1.2 * bmi + 0.23 * age - 5.4;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

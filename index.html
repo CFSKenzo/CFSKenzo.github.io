@@ -91,7 +91,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var form = document.querySelector('form'); 
+            var form = document.querySelector('form');
             var accountInput = document.getElementById('AccountID');
             var passwordInput = document.getElementById('PasswordID');
 
@@ -102,7 +102,8 @@
                 var isValid = validateForm();
                 if (isValid) {
                     // 這裡可以添加與後端交互的代碼
-                    alert('表單驗證通過，可以提交！');
+                    window.location.href = "MyHome.html";
+
                 }
             });
 
@@ -113,6 +114,10 @@
                 // 簡單的驗證邏輯，用戶名和密碼不能為空
                 if (accountValue === '' || passwordValue === '') {
                     alert('請輸入帳號和密碼');
+                    return false;
+                }
+                if (accountValue !== "life" || passwordValue !== "life") {
+                    alert('帳號或密碼錯誤');
                     return false;
                 }
 
