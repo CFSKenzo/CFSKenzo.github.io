@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Zoom with Mouse Center</title>
+    <style rel="stylesheet">
+        #canvas {
+            display: block;
+            width: 400px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+
+        #zoomDisplay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: white;
+            padding: 5px;
+        }
+        #mousePositionDisplay{
+            position:absolute;
+            top:30px;
+            left:10px;
+            background-color:white;
+            padding:5px;
+        }
+        #rgbDisplay{
+            position: absolute;
+            top:50px;
+            left:10px;
+            background-color:white;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas"></canvas>
+    <div id="zoomDisplay"></div>
+    <div id="mousePositionDisplay"></div>
+    <div id="rgbDisplay"></div>
+    <button onclick="fitToCanvas()">Fit to Canvas</button>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        var img = new Image();
+
+        var scale = 1;
+        var offsetX = 0;
+        var offsetY = 0;
+
+        canvas.addEventListener('dragover', function (e) {
+            e.preventDefault();
+        });
+
+        canvas.addEventListener('drop', function (e) {
+            e.preventDefault();
+            var file = e.dataTransfer.files[0];
+
+            if (file && file.type.startsWith('image/')) {
+                var reader = new FileReader();
+
+                reader.onload = function (readerEvent) {
+                    img.onload = function () {
+                        fitToCanvas();
+                    };
+                    img.src = readerEvent.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+
+        img.src = '/Access/jumbotron.jpeg';
+
+        img.onload = function () {
+            drawImage();
+
+            canvas.addEventListener('mousemove', function (e) {
+                getMousePosAndDisplay(e);
+            });
+
+            var isDragging = false;
+            var startX, startY;
+
+            canvas.addEventListener('mousedown', function (e) {
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+            });
+
+            canvas.addEventListener('mouseup', function () {
+                isDragging = false;
+            });
+
+            canvas.addEventListener('mousemove', function (e) {
+                if (!isDragging) return;
+
+                var deltaX = e.clientX - startX;
+                var deltaY = e.clientY - startY;
+
+                startX = e.clientX;
+                startY = e.clientY;
+
+                offsetX += deltaX;
+                offsetY += deltaY;
+
+                drawImage();
+            });
+
+            canvas.addEventListener('wheel', function (e) {
+                var delta = e.deltaY > 0 ? -0.1 : 0.1;
+
+                var mouseXRelativeToImage = (e.clientX - offsetX) / scale;
+                var mouseYRelativeToImage = (e.clientY - offsetY) / scale;
+
+                offsetX = e.clientX - mouseXRelativeToImage * (scale + delta);
+                offsetY = e.clientY - mouseYRelativeToImage * (scale + delta);
+                scale += delta;
+
+                scale = Math.max(0.1, scale);
+                scale = Math.min(2, scale);
+
+                drawImage();
+            });
+        };
+
+        function drawImage() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            var centerX = canvas.width / 2;
+            var centerY = canvas.height / 2;
+
+            var imageWidth = img.width * scale;
+            var imageHeight = img.height * scale;
+
+            var mouseXRelativeToImage = (centerX - offsetX) / scale;
+            var mouseYRelativeToImage = (centerY - offsetY) / scale;
+
+            offsetX = centerX - mouseXRelativeToImage * scale;
+            offsetY = centerY - mouseYRelativeToImage * scale;
+
+            ctx.drawImage(img, offsetX, offsetY, imageWidth, imageHeight);
+
+            document.getElementById('zoomDisplay').innerText = 'Zoom: ' + scale.toFixed(2);
+        }
+
+        function getMousePosAndDisplay(e) {
+            var mouseX = e.clientX - canvas.getBoundingClientRect().left;
+            var mouseY = e.clientY - canvas.getBoundingClientRect().top;
+
+            var mouseXOnImage = (mouseX - offsetX) / scale;
+            var mouseYOnImage = (mouseY - offsetY) / scale;
+
+            var imageX = Math.floor(mouseXOnImage);
+            var imageY = Math.floor(mouseYOnImage);
+
+            document.getElementById('mousePositionDisplay').innerText = 'Mouse Position on Image: (' + imageX + ', ' + imageY + ')';
+
+            var canvasX = imageX * scale + offsetX;
+            var canvasY = imageY * scale + offsetY;
+
+            var imageData = ctx.getImageData(canvasX, canvasY, 1, 1).data;
+            var color = 'RGB: (' + imageData[0] + ', ' + imageData[1] + ', ' + imageData[2] + ')';
+            document.getElementById('rgbDisplay').innerText = color;
+        }
+
+        function fitToCanvas() {
+            scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+            offsetX = (canvas.width - img.width * scale) / 2;
+            offsetY = (canvas.height - img.height * scale) / 2;
+
+            drawImage();
+        }
+    </script>
+</body>
+
+</html>

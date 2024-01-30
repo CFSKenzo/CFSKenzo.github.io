@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 禁止使用手機瀏覽器的電話號碼檢測 -->
+    <meta name="format-detection" content="telephone=no">
+    <title>CFSKen Home Page</title>
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="Access/Favicon/favicon.ico" />
+    <meta name="keywords" content="Kenzo" />
+    <meta name="description"
+        content="你好，我是Kenzo，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。" />
+    <meta name="auther" content="Kenzo" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">   -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header .jumbotron img {
+            width: 100%;
+            height: 20vh;
+            object-fit: cover;
+            display: block;
+        }
+
+        nav {
+            background: #000;
+            color: white;
+            justify-content: space-around;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav li {
+            width: 100%;
+            text-align: center;
+        }
+
+        nav ul li a {
+            padding: 10px;
+            display: block;
+            height: 100%;
+            width: 100%;
+            color: white;
+            text-decoration: none;
+            transition: 1s;
+        }
+
+        nav ul li:hover>a {
+            background-color: white;
+            color: black;
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: linear-gradient(30deg, lightblue 0%, white 100%);
+        }
+
+        main section {
+            padding: 10px 0px;
+
+            width: 80%;
+        }
+
+        main section h1 {
+            text-align: center;
+            padding: 10px 0px;
+        }
+
+        main section p {
+            text-indent: 4ex;
+        }
+
+        .Articales {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .Articales article {
+            width: 45%;
+            padding: 20px 0px;
+        }
+
+        .Articales article h2 {
+            padding: 10px 0px;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--jumbotron-->
+    <header>
+        <div class="jumbotron">
+            <img class="w-100" src="Access/jumbotron.jpeg" alt="lead image" />
+        </div>
+    </header>
+    <nav>
+        <div class="navbar">
+            <ul>
+                <li>
+                    <a href="MyHome.html">首頁</a>
+                </li>
+                <li>
+                    <a href="MyResume.html">履歷</a>
+                </li>
+                <li>
+                    <a href="MyArticle.html">作品</a>
+                </li>
+                <li>
+                    <a href="MyTravel.html">旅遊</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- 介紹 -->
+    <main>
+        <section class="AboutMe">
+            <h1>關於我</h1>
+            <p>
+                你好，我是Kenzo，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。
+            </p>
+        </section>
+        <section class="AboutWebSite">
+            <h1>關於網站</h1>
+            <p>
+                這個網站的存在源於對生命的熱愛與探索的渴望。開始經營的初衷，是為了紀錄個人的成長歷程以及豐富的旅遊體驗。透過這個平台，我能夠分享生活中的點滴，記錄自己的成長歷程，並留下每次旅行的珍貴回憶。
+            </p>
+        </section>
+        <section class="Articales">
+            <article>
+                <h2>首頁</h2>
+                <p>這裡是網站的首頁，是我與您分享最新動態、想法和專案的地方。歡迎您探索我的世界！</p>
+            </article>
+            <article>
+                <h2>履歷</h2>
+                <p>在這裡，您可以查看我的履歷，瞭解我的學經歷、專業技能和職業發展。讓我們一同回顧過去，了解我在軟體工程和影像處理領域的成就。</p>
+            </article>
+            <article>
+                <h2>作品</h2>
+                <p>這裡展示了我參與的一些專案和作品。從影像處理演算法到軟體開發，您可以深入了解我的技術實力和創作風格。</p>
+            </article>
+            <article>
+                <h2>旅遊</h2>
+                <p>追求知識不僅在技術領域，還在於探索世界。在這個板塊，我分享了我的旅遊經歷和所見所聞。一同感受文化的多樣性，品味旅行帶來的豐富體驗。</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>感謝您來訪，希望您在這裡找到您想要的資訊。如果有任何問題或想要交流，請隨時與我聯繫</a>。</p>
+        <p><em>Kenzo Chang -- CFSKen19910309@gmail.com</em></p>
+    </footer>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+</body>
+
+</html>
