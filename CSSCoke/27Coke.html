@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滾動背景</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+        .section{
+            width:100%;
+            height:100vh;
+            background-color: #666;
+            color:#fff;
+            font-size: 200px;
+            line-height:100vh;
+            text-align: center;
+            background-repeat:no-repeat;
+            background-position:center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .topic1{
+            background-image: url("https://picsum.photos/200/200?random=10")
+        }
+        .topic3{
+            background-image: url("https://picsum.photos/200/200?random=11")
+        }
+        .topic5{
+            background-image: url("https://picsum.photos/200/200?random=12")
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="section topic1"></div>
+    <div class="section topic2">topic2</div>
+    <div class="section topic3"></div>
+    <div class="section topic4">topic4</div>
+    <div class="section topic5"></div>
+    <div class="section topic6">topic6</div>
+</body>
+</html>

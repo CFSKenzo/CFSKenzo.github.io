@@ -40,14 +40,16 @@
         nav {
             position: sticky;
             top: 0;
-            background: #000;
-            color: white;
-            justify-content: space-around;
         }
 
         nav ul {
+            background: #000;
+            color: white;
+            justify-content: space-around;
             display: flex;
         }
+
+
 
         nav li {
             width: 100%;
@@ -55,16 +57,22 @@
         }
 
         nav ul li a {
+            box-sizing: border-box;
             padding: 10px;
             display: block;
+            height: 100%;
+            width: 100%;
             color: white;
             text-decoration: none;
+            transform: translateY(0px);
             transition: 1s;
         }
 
         nav ul li:hover>a {
             background-color: white;
+            transform: translateY(-10px);
             color: black;
+
         }
 
         main {
@@ -77,17 +85,29 @@
 
         main section {
             padding: 10px 0px;
-
             width: 80%;
         }
 
-        main section h1 {
+        main section .Title {
             text-align: center;
             padding: 10px 0px;
         }
 
         main section p {
             text-indent: 4ex;
+        }
+
+        .MyInfo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .MyInfo img {
+            float: left;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            vertical-align: middle;
         }
 
         article {
@@ -110,6 +130,9 @@
             /* 更改陰影效果 */
         }
 
+
+
+
         .Education article {
             margin: 10px 0px;
             padding: 0px 10px;
@@ -118,31 +141,40 @@
             box-shadow: 5px 3px 15px #ADD8E6;
             transition: 0.3s;
             display: flex;
+            justify-content: center;
             align-items: center;
         }
-
+        .Education .LinkAndBadge {
+            height: 100px;
+            width: 100px;
+            flex-shrink: 0;
+        }
+        .Education .LinkAndBadge .SchoolBadge {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            vertical-align: middle;
+            border-radius: 5px;
+        }
         .Education .Degree {
             display: block;
             font-size: larger;
             font-weight: 600;
             font-style: italic;
-            flex: 2;
-            flex-grow: 2rem;
+            
 
         }
+        .Education .Time {
+            display: block;
+            font-size: larger;
+            font-weight: 600;
+            font-style: italic;
+            flex-shrink:1;
 
-        .Education .LinkAndBadge {
-            flex: 1;
+
         }
-
-        .Education .LinkAndBadge .SchoolBadge {
-            width: 100%;
-            height: 100%;
-            border-radius: 5px;
-        }
-
         .Education .Summary {
-            flex: 7;
+            flex-shrink:1;
         }
 
         .Education .HighLight {
@@ -161,25 +193,21 @@
 
 <body>
     <!--jumbotron-->
-    <header>
-        <div class="jumbotron">
-            <img class="w-100" src="Access/jumbotron.jpeg" alt="lead image" />
-        </div>
-    </header>
+    <!-- 導覽 -->
     <nav>
         <div class="navbar">
             <ul>
                 <li>
-                    <a href="MyHome.html"><i class="fa-solid fa-house"></i>首頁</a>
+                    <a href="MyHome.html">首頁</a>
                 </li>
                 <li>
-                    <a href="MyResume.html"><i class="fa-solid fa-user"></i>履歷</a>
+                    <a href="MyResume.html">履歷</a>
                 </li>
                 <li>
-                    <a href="MyWorks.html"><i class="fa-solid fa-star"></i>作品</a>
+                    <a href="MyArticle.html">作品</a>
                 </li>
                 <li>
-                    <a href="MyTravels.html"><i class="fa-solid fa-plane"></i>旅遊</a>
+                    <a href="MyTravel.html">旅遊</a>
                 </li>
             </ul>
         </div>
@@ -187,15 +215,18 @@
     <!-- 介紹 -->
     <main>
         <section class="MyInfo">
-            <h1>基本資料</h1>
-            <img style="float:left; width:100px; height: 100px;" src="Access/MyPhoto.jpg" alt="My Photo" height="300">
-            <p> 姓名:Kenzo Chang</p>
-            <p> 信箱: CFSKen19910309@gmail.com</p>
-            <p> 經歷概述: </p>
-            <p> 專業能力: 影像處理, C#, HTML, JavaScript, CSS</p>
+            <h1 class="Title">基本資料</h1>
+            <div class="Contents">
+                <img src="Access/MyPhoto.jpg" alt="My Photo">
+                <p> 姓名:Kenzo Chang</p>
+                <p> 信箱: CFSKen19910309@gmail.com</p>
+                <p> 經歷概述: </p>
+                <p> 專業能力: 影像處理, C#, HTML, JavaScript, CSS</p>
+            </div>
         </section>
+
         <section class="Career">
-            <h1>工作經驗</h1>
+            <h1 class="Title">工作經驗</h1>
             <article class="CareerItem" onclick="ToggleContents(event)">
                 <p>年資: 2018/09~</p>
                 <p>公司名稱: 純軟體公司</p>
@@ -223,7 +254,7 @@
         </section>
 
         <section class="Education">
-            <h1>學歷</h1>
+            <h1 class="Title">學歷</h1>
             <article>
                 <section class="LinkAndBadge">
                     <a href="https://www.nkust.edu.tw/" target="_blank">
@@ -233,6 +264,7 @@
                 <section class="Degree">
                     <p>碩士</p>
                 </section>
+                <section class="Time">2013/09～2015/07</section>
                 <section class="Summary">
                     <p>國立高雄應用科技大學 電子工程學系</p>
                     <section class="HighLight">
@@ -251,6 +283,7 @@
                 <section class="Degree">
                     <p>學士</p>
                 </section>
+                <section class="Time">2009/09～2013/07</section>
                 <section class="Summary">
                     <p>國立高雄應用科技大學 電子工程學系</p>
                     <section class="HighLight">
@@ -269,6 +302,7 @@
                 <section class="Degree">
                     <p>高職</p>
                 </section>
+                <section class="Time">2006/09～2009/07</section>
                 <section class="Summary">
                     <p>國立桃園農業工業職業學校 電子科</p>
                     <section class="HighLight">

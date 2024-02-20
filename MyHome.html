@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" sizes="16x16" href="Access/Favicon/favicon.ico" />
     <meta name="keywords" content="Kenzo" />
     <meta name="description"
-        content="你好，我是Kenzo，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。" />
+        content="你好，我是Kenta，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。" />
     <meta name="auther" content="Kenzo" />
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">   -->
     <style>
@@ -23,28 +23,38 @@
 
         html,
         body {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
         }
 
-        header .jumbotron img {
-            width: 100%;
-            height: 20vh;
-            object-fit: cover;
-            display: block;
+
+        header .banner {
+            background: linear-gradient(135deg, lightblue 0%, blue 50%, transparent 50%),
+                url("Access/jumbotron.jpeg") no-repeat center center/ cover;
+        }
+
+        header .banner-txt {
+            display: flex;
+            width: 45%;
+            height: 30vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
         nav {
+            position: sticky;
+            top: 0;
+        }
+        nav ul {
             background: #000;
             color: white;
             justify-content: space-around;
-        }
-
-        nav ul {
             display: flex;
         }
+
+
 
         nav li {
             width: 100%;
@@ -52,25 +62,32 @@
         }
 
         nav ul li a {
+            box-sizing: border-box;
             padding: 10px;
             display: block;
             height: 100%;
             width: 100%;
             color: white;
             text-decoration: none;
+            transform: translateY(0px);
             transition: 1s;
         }
 
         nav ul li:hover>a {
             background-color: white;
+            transform: translateY(-10px);
             color: black;
+
         }
+
+
 
         main {
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            line-height: 2em;
             background-image: linear-gradient(30deg, lightblue 0%, white 100%);
         }
 
@@ -116,10 +133,16 @@
 <body>
     <!--jumbotron-->
     <header>
-        <div class="jumbotron">
-            <img class="w-100" src="Access/jumbotron.jpeg" alt="lead image" />
+        <div class="banner">
+            <div class="container">
+                <div class="banner-txt">
+                    <h1>Kenta Page</h1>
+                    <h2>This is my page to showcase what I am and document my life.</h2>
+                </div>
+            </div>
         </div>
     </header>
+    <!-- 導覽 -->
     <nav>
         <div class="navbar">
             <ul>
@@ -143,38 +166,37 @@
         <section class="AboutMe">
             <h1>關於我</h1>
             <p>
-                你好，我是Kenzo，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。
+                你好，我是Kenta，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。
+
+                我相信，透過旅行，我得到了更廣泛的視野，並學會了適應不同的環境和文化。這種開放的態度有助於我在軟體開發領域中思考問題，尋找新的解決方案。同時，旅行也是我與不同背景和專業的人交流的機會，這樣的交流經驗豐富了我的思想，激發了我對技術創新的渴望。
+
+                在軟體工程的領域裡，我專注於提高影像處理演算法的效率和效能，並致力於將最新的技術應用於實際問題中。我喜歡挑戰自己，不斷學習和成長，以求在這個領域中保持領先地位。我的目標是開發出能夠改善人們生活品質的創新軟體，並將技術推向新的高度。
+
+                除了專業上的追求，我也注重平衡生活與工作。我相信旅行是我保持身心健康的一部分，它讓我能夠在繁忙的工作中放鬆心情，並重新獲得動力和靈感。在未來，我將繼續努力工作，追求技術創新，同時保持對旅行的熱愛，不斷豐富自己的人生體驗。
+
+                總的來說，我是一位對技術和旅行充滿熱情的人，致力於在軟體工程領域中創造價值並享受生活的美好。我期待著將我的熱情和專業知識應用於未來的挑戰和機遇中，並與同行們共同成長，共同進步。
             </p>
         </section>
         <section class="AboutWebSite">
             <h1>關於網站</h1>
             <p>
-                這個網站的存在源於對生命的熱愛與探索的渴望。開始經營的初衷，是為了紀錄個人的成長歷程以及豐富的旅遊體驗。透過這個平台，我能夠分享生活中的點滴，記錄自己的成長歷程，並留下每次旅行的珍貴回憶。
+                這個網站的建立不僅僅是為了呈現一個虛擬的空間，更是一種對生命的熱情和對探索的渴望的體現。它是我對於生活的熱愛的展現，也是我對於旅行所帶來的豐富體驗的紀錄。我始終相信，每一次的旅行都是一次對於生活的探索，一次對於自我的成長。
+
+                這個網站的起源可以追溯到我內心對於生活的熱愛和對於探索的渴望。當初開始經營的初衷，純粹是希望能夠記錄下自己的成長歷程以及豐富的旅遊體驗。在這個平台上，我可以盡情地分享生活中的點滴，細緻地記錄自己的成長歷程，並將每一次旅行的珍貴回憶永久地鎖定在這個網站上。
+
+                每一次的旅行都是一次對於自己的挑戰和對於世界的探索。無論是走遍大江南北，還是踏足異國他鄉，每一次旅行都讓我有機會去體驗不同的文化、感受不同的風景，並從中獲得豐富的生活體驗和人生感悟。這些珍貴的體驗不僅豐富了我的生活，也讓我更加深刻地理解了生命的意義和價值。
+
+                透過這個網站，我不僅僅是在紀錄自己的生活，更是在與世界分享我的心路歷程。我希望透過自己的文字和影像，能夠觸動更多人的心靈，啟發他們去探索生命的意義，熱愛生活的每一刻。每一篇文章、每一張照片都是我用心的匠心之作，我希望能夠將這份熱情和對生活的熱愛傳遞給每一位讀者。
+
+                總而言之，這個網站的存在不僅僅是一個紀錄生活的平台，更是我對生命的熱情和對探索的渴望的體現。我將繼續努力經營下去，希望能夠將更多美好和感動分享給更多的人，並與讀者們一同走過生命的旅程。
             </p>
         </section>
-        <section class="Articales">
-            <article>
-                <h2>首頁</h2>
-                <p>這裡是網站的首頁，是我與您分享最新動態、想法和專案的地方。歡迎您探索我的世界！</p>
-            </article>
-            <article>
-                <h2>履歷</h2>
-                <p>在這裡，您可以查看我的履歷，瞭解我的學經歷、專業技能和職業發展。讓我們一同回顧過去，了解我在軟體工程和影像處理領域的成就。</p>
-            </article>
-            <article>
-                <h2>作品</h2>
-                <p>這裡展示了我參與的一些專案和作品。從影像處理演算法到軟體開發，您可以深入了解我的技術實力和創作風格。</p>
-            </article>
-            <article>
-                <h2>旅遊</h2>
-                <p>追求知識不僅在技術領域，還在於探索世界。在這個板塊，我分享了我的旅遊經歷和所見所聞。一同感受文化的多樣性，品味旅行帶來的豐富體驗。</p>
-            </article>
-        </section>
+
     </main>
 
     <footer>
         <p>感謝您來訪，希望您在這裡找到您想要的資訊。如果有任何問題或想要交流，請隨時與我聯繫</a>。</p>
-        <p><em>Kenzo Chang -- CFSKen19910309@gmail.com</em></p>
+        <p><em>Kenta -- CTHTai@gmail.com</em></p>
     </footer>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
 </body>

@@ -4,96 +4,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoginPage</title>
+    <title>Login page</title>
     <style>
-        :root {
-            --primary-color: #3498da;
-            --hover-color: #349fff;
-        }
-
         * {
-            box-sizing: border-box;
-            margin: 0;
             padding: 0;
-            font-size: 18px;
+            margin: 0;
+            list-style: none;
         }
 
         body {
+            background: url("Access/jumbotron.jpeg") no-repeat center center / cover;
             height: 100vh;
+            width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f4f4f4;
         }
 
-        form {
-            border: 5px solid var(--primary-color);
-            border-radius: 8px;
-            width: 50%;
+        .Login {
+            backdrop-filter: blur(5px);
+            width: 600px;
+            height: 500px;
+            border: 10px solid #fff;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
+        .Form {
+            width: 400px;
         }
 
-        input {
+        .Form h2 {
+            border-bottom: 1px solid #fff;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+
+        .Form .Group {
+            margin-bottom: 20px;
+        }
+
+        .Form label {
+            line-height: 2;
+        }
+
+        .Form input {
+            box-sizing: border-box;
             width: 100%;
-            padding: 10px;
-            margin-bottom: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            transition: border-color 0.3s ease;
+            border-radius: 5px;
+            line-height: 3;
+            padding-left: 10px;
+            border: 1 px solid #aaa;
         }
 
-        input:focus {
-            border-color: var(--primary-color);
+        .Form .ButtonGroup {
+            font-size: 0;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
         }
 
-        .submit-button,
-        .reset-button {
-            width: 100%;
-            padding: 12px;
-            display: block;
-            border-radius: 4px;
-            background-color: var(--primary-color);
+        .Form button {
+            font-size: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #6ab4fe;
+            width: 190px;
+            padding: 10px 0;
             color: #fff;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
+        }
+        .Form button:hover{
+            background-color: #00b4fe;
+        }
+        .Form button:active{
+            background-color: #00a4fe;
         }
 
-        .reset-button {
-            background-color: #ccc;
-            margin-top: 16px;
-        }
-
-        .submit-button:hover,
-        .reset-button:hover {
-            background-color: var(--hover-color);
-        }
     </style>
 </head>
 
 <body>
-    <form action="">
-        <label for="Account">Account</label>
-        <input type="text" name="Account" id="AccountID" required />
-        <label for="Password">Password</label>
-        <input type="password" name="Password" id="PasswordID" required>
-        <button class="submit-button" type="submit">Submit</button>
-        <button class="reset-button" type="reset">Reset</button>
-    </form>
+    <div class="Login">
+        <form action="#" class="Form">
+            <h2>會員登入</h2>
+            <div class="Group">
+                <label for="Account">Account</label>
+                <input type="text" name="Account" id="Account">
+            </div>
+            <div class="Group">
+                <label for="Password">Password</label>
+                <input type="password" name="Password" id="Password">
+            </div>
+            <div class="ButtonGroup">
+                <button type="reset">Reset</button>
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var form = document.querySelector('form');
-            var accountInput = document.getElementById('AccountID');
-            var passwordInput = document.getElementById('PasswordID');
+            var accountInput = document.getElementById('Account');
+            var passwordInput = document.getElementById('Password');
 
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
@@ -103,7 +120,6 @@
                 if (isValid) {
                     // 這裡可以添加與後端交互的代碼
                     window.location.href = "MyHome.html";
-
                 }
             });
 
@@ -120,7 +136,7 @@
                     alert('帳號或密碼錯誤');
                     return false;
                 }
-
+                //You found me.
                 return true;
             }
 
@@ -129,7 +145,6 @@
                 // 改變用戶名input邊框顏色
 
                 if (accountInput.value.trim() !== '') {
-
                     accountInput.style.borderColor = 'green';
                 } else {
                     accountInput.style.borderColor = 'initial';

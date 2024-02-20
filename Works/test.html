@@ -34,10 +34,21 @@
             background-color:white;
             padding: 5px;
         }
+        a{
+            text-decoration: none;
+            text-decoration-line: underline overline;
+            text-underline-offset: 10px;
+            text-decoration-thickness: 0px;
+            transition: 5s;           
+        }
+        a:hover{
+            text-decoration-thickness: 10px;
+        }
     </style>
 </head>
 
 <body>
+    <a href="#">test</a>
     <canvas id="myCanvas"></canvas>
     <div id="zoomDisplay"></div>
     <div id="mousePositionDisplay"></div>
