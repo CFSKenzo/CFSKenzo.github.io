@@ -9,10 +9,10 @@
     <meta name="format-detection" content="telephone=no">
     <title>CFSKen Home Page</title>
     <link rel="icon" type="image/x-icon" sizes="16x16" href="Access/Favicon/favicon.ico" />
-    <meta name="keywords" content="Kenzo" />
+    <meta name="keywords" content="Kenta" />
     <meta name="description"
-        content="你好，我是Kenzo，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。" />
-    <meta name="auther" content="Kenzo" />
+        content="你好，我是Kenta，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。" />
+    <meta name="auther" content="Kenta" />
     <script src="https://kit.fontawesome.com/e4807cf622.js" crossorigin="anonymous"></script>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">   -->
     <style>
@@ -99,15 +99,27 @@
 
         .MyInfo {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .MyInfo h1 {
+            width: 100%;
+        }
+
+        .MyInfo .PictureInfo {
+            width: 10%;
         }
 
         .MyInfo img {
-            float: left;
             border-radius: 50%;
             width: 100px;
             height: 100px;
             vertical-align: middle;
+        }
+
+        .MyInfo .PersonInfo {
+            width: calc(100% - 120px);
+            border: 1px solid #87CEFA;
         }
 
         article {
@@ -144,11 +156,13 @@
             justify-content: center;
             align-items: center;
         }
+
         .Education .LinkAndBadge {
             height: 100px;
             width: 100px;
             flex-shrink: 0;
         }
+
         .Education .LinkAndBadge .SchoolBadge {
             width: 100%;
             height: 100%;
@@ -156,25 +170,28 @@
             vertical-align: middle;
             border-radius: 5px;
         }
+
         .Education .Degree {
             display: block;
             font-size: larger;
             font-weight: 600;
             font-style: italic;
-            
+
 
         }
+
         .Education .Time {
             display: block;
             font-size: larger;
             font-weight: 600;
             font-style: italic;
-            flex-shrink:1;
+            flex-shrink: 1;
 
 
         }
+
         .Education .Summary {
-            flex-shrink:1;
+            flex-shrink: 1;
         }
 
         .Education .HighLight {
@@ -187,6 +204,9 @@
             color: white;
             text-align: center;
             padding: 10px;
+        }
+        section h1{
+            width:100%;
         }
     </style>
 </head>
@@ -216,10 +236,12 @@
     <main>
         <section class="MyInfo">
             <h1 class="Title">基本資料</h1>
-            <div class="Contents">
+            <div class="PictureInfo">
                 <img src="Access/MyPhoto.jpg" alt="My Photo">
-                <p> 姓名:Kenzo Chang</p>
-                <p> 信箱: CFSKen19910309@gmail.com</p>
+            </div>
+            <div class="PersonInfo">
+                <p> 姓名:Kenta Chang</p>
+                <p> 信箱: CTHTai@gmail.com</p>
                 <p> 經歷概述: </p>
                 <p> 專業能力: 影像處理, C#, HTML, JavaScript, CSS</p>
             </div>
@@ -315,7 +337,7 @@
 
     <footer>
         <p>感謝您來訪，希望您在這裡找到您想要的資訊。如果有任何問題或想要交流，請隨時與我聯繫。</p>
-        <p><em>Kenzo Chang -- CFSKen19910309@gmail.com</em></p>
+        <p><em>Kenta Chang -- CFSKen19910309@gmail.com</em></p>
     </footer>
 
     <script>
