@@ -14,7 +14,7 @@
         content="你好，我是Kenta，一位充滿熱情的軟體工程師和影像處理專家。我的工作主要聚焦於開發高效且創新的影像處理演算法，同時我對軟體工程的多元領域有著廣泛的興趣。除了技術之外，我熱愛旅遊。探索不同的文化、美麗的風景和新奇的地方是我放鬆和啟發靈感的途徑。在旅途中，我喜歡挑戰自己，嘗試新的體驗，並將這些豐富的經歷融入我的生活和工作。" />
     <meta name="auther" content="Kenta" />
     <script src="https://kit.fontawesome.com/e4807cf622.js" crossorigin="anonymous"></script>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">   -->
+
     <style>
         * {
             margin: 0;
@@ -30,14 +30,10 @@
             flex-direction: column;
         }
 
-        header .jumbotron img {
-            width: 100%;
-            height: 20vh;
-            object-fit: cover;
-            display: block;
-        }
 
         nav {
+            z-index: 1;
+
             position: sticky;
             top: 0;
         }
@@ -48,8 +44,6 @@
             justify-content: space-around;
             display: flex;
         }
-
-
 
         nav li {
             width: 100%;
@@ -83,68 +77,133 @@
             background-image: linear-gradient(30deg, lightblue 0%, white 100%);
         }
 
-        main section {
-            padding: 10px 0px;
+        /* main section {
+            padding: 10px 60px;
             width: 80%;
+            display: flex;
+            flex-direction: column;
         }
 
         main section .Title {
             text-align: center;
             padding: 10px 0px;
-        }
-
-        main section p {
-            text-indent: 4ex;
-        }
+        } */
 
         .MyInfo {
+            padding: 10px 60px;
+            width: 80%;
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
         }
 
-        .MyInfo h1 {
-            width: 100%;
-        }
-
-        .MyInfo .PictureInfo {
-            width: 10%;
-        }
-
-        .MyInfo img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            vertical-align: middle;
+        .MyInfo .Title {
+            text-align: center;
+            padding: 10px 0px;
         }
 
         .MyInfo .PersonInfo {
-            width: calc(100% - 120px);
-            border: 1px solid #87CEFA;
+            display: flex;
+            justify-content: space-around;
+            margin: 0 0 10px 0;
         }
 
-        article {
+        .PersonInfo p::before {
+            content: attr(class) ': ';
+        }
+
+        .MyInfo .Contents {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .MyInfo .PictureInfo {
+            flex-shrink: 0;
+            width: 128px;
+            height: 128px;
+        }
+
+        .PictureInfo img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .MyInfo .PersonalBrief {
+            text-align: justify;
+            padding: 20px;
+        }
+
+
+        .Career {
+            display: flex;
+            flex-direction: column;
+            padding: 10px 0px;
+            width: 80%;
+        }
+
+        .Career .Title {
+            text-align: center;
+        }
+
+        .Career .CareerItem {
             margin: 10px 0px;
-        }
-
-        .Career article {
+      
+            padding: 10px;
             border: 3px solid #ADD8E6;
             border-radius: 15px;
             box-shadow: 5px 3px 15px #ADD8E6;
-            transition: 0.3s;
             /* 添加過渡效果 */
+            transition: 0.3s;
+            position: relative;
+
         }
 
-        .CareerItem:hover {
-
+        .Career .CareerItem:hover {
             border: 3px solid #87CEFA;
             /* 更改邊框顏色 */
             box-shadow: 5px 5px 20px #87CEFA;
             /* 更改陰影效果 */
         }
 
+        .Career .CareerItem .Details {
+            display: none;
+        }
+        .Career .LabelFirstDetail,
+        .Career .LabelSecondDetail,
+        .Career .LabelThirdDetail{
+            position: absolute;
+            top:0;
+            height: 100%;
+            width: 100%;
+        }
+        .CareerItem .SwitchDetails{
+            display: none;
+        }
+        .CareerItem .SwitchDetails:checked + .Details{
+            display:block;
+            
+        }
+        .SwitchDetails + .Details{
+            display:block;
+            border: 4px #3498e9 dotted;
+            padding : 10px;
+            margin: 10px 0 0 20px;
+        }
 
 
 
+
+
+
+
+        .Education{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+        }
         .Education article {
             margin: 10px 0px;
             padding: 0px 10px;
@@ -153,7 +212,7 @@
             box-shadow: 5px 3px 15px #ADD8E6;
             transition: 0.3s;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
         }
 
@@ -205,8 +264,9 @@
             text-align: center;
             padding: 10px;
         }
-        section h1{
-            width:100%;
+
+        section h1 {
+            width: 100%;
         }
     </style>
 </head>
@@ -236,42 +296,55 @@
     <main>
         <section class="MyInfo">
             <h1 class="Title">基本資料</h1>
-            <div class="PictureInfo">
-                <img src="Access/MyPhoto.jpg" alt="My Photo">
-            </div>
             <div class="PersonInfo">
-                <p> 姓名:Kenta Chang</p>
-                <p> 信箱: CTHTai@gmail.com</p>
-                <p> 經歷概述: </p>
-                <p> 專業能力: 影像處理, C#, HTML, JavaScript, CSS</p>
+                <p class="姓名"><strong>Kenta Chang</strong></p>
+                <p class="信箱"><strong>CTHTai@gmail.com</strong></p>
+                <p class="專業能力">影像處理, C#, HTML, JavaScript, CSS</p>
+            </div>
+            <div class="Contents">
+                <div class="PictureInfo">
+                    <img src="Access/MyPhoto.jpg" alt="My Photo">
+                </div>
+                <div class="PersonalBrief">
+                    <p class="簡短自述">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim facere esse minus
+                        repudiandae perspiciatis numquam quis vitae necessitatibus aut similique quisquam beatae, iste
+                        nisi consequatur impedit quia reprehenderit aliquam pariatur vero. Eum rerum excepturi illum ab
+                        dolore recusandae sed dolor quod culpa? Maxime iste ipsam porro eaque veniam facere cumque.</p>
+                </div>
             </div>
         </section>
 
         <section class="Career">
             <h1 class="Title">工作經驗</h1>
-            <article class="CareerItem" onclick="ToggleContents(event)">
-                <p>年資: 2018/09~</p>
-                <p>公司名稱: 純軟體公司</p>
-                <p>職務: 軟體工程師</p>
-                <p>工作內容: Custometic detect machine </p>
-                <p>經歷專案: Mobile Q, SMARTGrade</p>
+            <article class="CareerItem">
+                <p class="年資">2018/09~</p>
+                <p class="公司名稱">純軟體公司</p>
+                <p class="職務">軟體工程師</p>
+                <p class="工作內容">Custometic detect machine </p>
+                <p class="經歷專案">Mobile Q, SMARTGrade</p>
+                <label class="LabelFirstDetail" for="FirstDetail"></label>
+                <input class="SwitchDetails" id="FirstDetail" type="checkbox">
                 <section class="Details">Details</section>
             </article>
-            <article class="CareerItem" onclick="ToggleContents(event)">
-                <p>年資: 2017/09~2018/06</p>
-                <p>公司名稱: 半導體公司</p>
-                <p>職務: 影像處理工程師</p>
-                <p>工作內容: 晶圓級檢測算法與系統</p>
-                <p>經歷專案: Pick&Place機台, Automation, Wafer detection</p>
+            <article class="CareerItem">
+                <p class="年資">2017/09~2018/06</p>
+                <p class="公司名稱">半導體公司</p>
+                <p class="職務">影像處理工程師</p>
+                <p class="工作內容">晶圓級檢測算法與系統</p>
+                <p class="經歷專案">Pick&Place機台, Automation, Wafer detection</p>
+                <label class="LabelSecondDetail" for="SecondDetail"></label>
+                <input class="SwitchDetails" id="SecondDetail" type="checkbox">
                 <section class="Details">Details</section>
             </article>
-            <article class="CareerItem" onclick="ToggleContents(event)">
-                <p>年資: 2015/09~2017/09</p>
-                <p>公司名稱: 自動化公司</p>
-                <p>職務: AOI軟體工程師</p>
-                <p>工作內容: SMT/PCB 光學檢查機機台 </p>
-                <p>經歷專案: ShopFlow, 開發上下罩檢察機, 新增光耦器瑕疵演算法</p>
-                <section style="display:none" class="Details">Details</section>
+            <article class="CareerItem">
+                <p class="年資">2015/09~2017/09</p>
+                <p class="公司名稱">自動化公司</p>
+                <p class="職務">AOI軟體工程師</p>
+                <p class="工作內容">SMT/PCB 光學檢查機機台 </p>
+                <p class="經歷專案">ShopFlow, 開發上下罩檢察機, 新增光耦器瑕疵演算法</p>
+                <label class="LabelThirdDetail" for="ThirdDetail"></label>
+                <input class="SwitchDetails" id="ThirdDetail" type="checkbox">
+                <section class="Details">Details</section>
             </article>
         </section>
 
@@ -289,7 +362,7 @@
                 <section class="Time">2013/09～2015/07</section>
                 <section class="Summary">
                     <p>國立高雄應用科技大學 電子工程學系</p>
-                    <section class="HighLight">
+                    <section class="HighLight" hidden>
                         <p>碩士論文: 使用 OpenCL 框架之行人局部遮蔽偵測方法</p>
                         <p>TANET研討會論文: 適用於數位相機單CCD之影像內插演算法</p>
                     </section>
@@ -308,14 +381,13 @@
                 <section class="Time">2009/09～2013/07</section>
                 <section class="Summary">
                     <p>國立高雄應用科技大學 電子工程學系</p>
-                    <section class="HighLight">
+                    <section class="HighLight" hidden>
                         <p>大學院校積體電路(IC)設計競賽-大學全客戶設計組: 榮獲佳作獎</p>
                         <p>奇景盃IC佈局競賽: 設計完成獎</p>
                     </section>
                 </section>
             </article>
             <article>
-
                 <section class="LinkAndBadge">
                     <a href="https://www.tyai.tyc.edu.tw/" target="_blank">
                         <img class="SchoolBadge" src="Access/TYAI.png" alt="高應大校徽">
@@ -327,7 +399,7 @@
                 <section class="Time">2006/09～2009/07</section>
                 <section class="Summary">
                     <p>國立桃園農業工業職業學校 電子科</p>
-                    <section class="HighLight">
+                    <section class="HighLight" hidden>
                         <p>全國工科技藝競賽-工業電子職類: 優勝</p>
                     </section>
                 </section>
@@ -344,7 +416,8 @@
         function ToggleContents(e) {
         }
     </script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+
+
 </body>
 
 </html>

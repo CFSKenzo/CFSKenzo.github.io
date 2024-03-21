@@ -21,10 +21,23 @@
             align-items: center;
         }
 
+        @media screen  {
+            .Login {
+                width: 600px;
+                height: 500px;
+            }
+        }
+
+        @media screen and (max-width:767px) {
+            .Login {
+                width: 60%;
+                height: 500px;
+            }
+        }
+
         .Login {
-            backdrop-filter: blur(5px);
-            width: 600px;
-            height: 500px;
+            -webkit-backdrop-filter: blur(10x);
+            backdrop-filter: blur(10px);
             border: 10px solid #fff;
             padding: 20px;
             display: flex;
@@ -34,7 +47,7 @@
         }
 
         .Form {
-            width: 400px;
+            width: 80%;
         }
 
         .Form h2 {
@@ -76,13 +89,14 @@
             padding: 10px 0;
             color: #fff;
         }
-        .Form button:hover{
+
+        .Form button:hover {
             background-color: #00b4fe;
         }
-        .Form button:active{
+
+        .Form button:active {
             background-color: #00a4fe;
         }
-
     </style>
 </head>
 
